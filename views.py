@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
@@ -20,6 +21,7 @@ def delete(request, id_del):
 	ostju = tracking_numbers.objects.get(id=id_del)
 	ostju.delete()
 	return redirect('/')
+#	return HttpResponse('<script>javascript:alert("Not gonna happen");window.location.assign("/");</script>')
 
 def add(request):
 	tracking_number = request.POST.get('tracking_number')
