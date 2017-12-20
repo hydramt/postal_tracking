@@ -1,0 +1,6 @@
+db.*
+*.pyc
+*.swp
+*.log
+__pycache__
+migrations
