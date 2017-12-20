@@ -1,0 +1,38 @@
+<head>
+<title>Postal Tracker</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+	<div id="main">
+		<div id="infopane">
+				<div id="addForm">
+					<form style="align: center;" action="/add" method="post">{% csrf_token %}
+						Tracking No: <input type="text" name="tracking_number"></input> Description: <input type="text" name="description"></input><input type="submit" value="X"></input>
+					</form>
+				</div>
+				<p id="text">
+					<div id="trackingNumberDiv">
+						<!--<p id="trackingNumber">-->
+						 	{% for ref in csv_list %}
+								{{ ref.tracking_number }}<br /> <!-- {{ ref.description }} <a href="del/{{ref.id }}">X</a><br />-->
+							{% endfor %}
+						<!--</p>-->
+					</div>
+					<div id="descrDiv">
+						 	{% for ref in csv_list %}
+								{{ ref.description }} <br />
+							{% endfor %}
+					</div>
+					<div id="xDiv">
+						 	{% for ref in csv_list %}
+								<a href="del/{{ref.id }}"><image class="delButton" src="{% static 'delete.png' %}" /></a><br />
+							{% endfor %}
+					</div>
+				</p>
+		</div>
+
+		<div id="dummy17track"> src="http://17track.net/en/track?nums={{ csv_refs }}"</div>
+<!--		<iframe id="17track" src="http://17track.net/en/track?nums={{ csv_refs }}"></iframe>--> 
+	</div>
+</body>
