@@ -9,18 +9,19 @@
 }
 #infopane {
 	width: 100%;
-	height: 10%;
+	height: 13%;
 	left:0;
 	right:0;
 	top:0;
 	position:absolute;
 	overflow-y:auto;
-	color: red;
+	color: lawngreen;
 	background-color: black;
+	padding: 0 0 0 0;
 }
 #dummy17track {
 	width: 100%;
-	height: 90%;
+	height: 87%;
 	position:absolute;
 	border-top: #000000 2px solid;
 	padding: 0;
@@ -30,7 +31,7 @@
 }
 iframe {
 	width: 100%;
-	height: 90%;
+	height: 87%;
 	position:absolute;
 	border-top: #000000 2px solid;
 	padding: 0;
@@ -42,6 +43,8 @@ body {
 	overflow:hidden;
 }
 #text {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 #addForm {
 	text-align: center;
@@ -51,39 +54,27 @@ body {
 #trackingNumberDiv {
 	top:0;
 	height: 20%;
-	width: 40%;
+	width: 38%;
 	display: inline-block;
 	text-align: right;
-	/*line-height: 1.5;*/
+	padding: 0 0 0 0;
 }
-/*#descriptionDiv {
-	top: 0;
-	height: 20%;
-	width: 20%;
-	left: 33%;
-	line-height: 1.5;
-	display: inline-block;
-}
-#menuDiv {
-	top:0;
-	height: 20%;
-	width: 30%;
-	display: inline-block;
-	line-height: 1.5;
-	vertical-align: middle;
-	text-align: left;
-}*/
 #descrDiv {
 	display: inline-block;
 	height: 20%;
-	width: 20%;
+	width: 27%;
 	text-align: center;
 }
 #xDiv {
 	display: inline-block;
 	height: 20%;
-	width: 33%;
+	width: 4%;
 	text-align: left;
+}
+.delButton {
+	height: 16;
+	float: right;
+	vertical-align: middle;
 }
 #trackingNumber {
 	top:0;
