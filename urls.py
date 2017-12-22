@@ -19,12 +19,14 @@ from django.conf.urls import url
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.shortcuts import render
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('alla/', admin.site.urls),
     path('', views.index),
     path('add', views.add),
     url(r'^del/(?P<id_del>[0-9]+)/$', views.delete),
-    path('login/', admin.site.urls),
+    path('login/', views.loginF, name='login_page'),
+    path('loginP', views.loginP),
 
 ]
