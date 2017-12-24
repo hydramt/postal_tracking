@@ -26,7 +26,8 @@ urlpatterns = [
     path('', views.index),
     path('add', views.add),
     url(r'^del/(?P<id_del>[0-9]+)/$', views.delete),
-    path('login/', views.loginF, name='login_page'),
-    path('loginP', views.loginP),
-
+    path('login', views.loginP, name='login_page'),
+#    path('loginP', views.loginP),
+    path('register', views.registerF),
+    path('registerP/', views.registerP),
 ]

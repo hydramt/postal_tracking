@@ -1,0 +1,25 @@
+<head>
+	<title>Postal Tracking Login</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+<body>
+	<div id="main">
+		<form id="loginForm" action="/register" method="post">
+			{% csrf_token %}
+			<label for="id_username">Username:</label>
+			<input id="id_username" name="username" type="text" class="form-control"><br />
+			<label for="id_email">Email:</label>
+			<input id="id_email" name="email" type="text" class="form-control"><br />
+			<label for="id_password">Password:</label>
+			<input id="id_password" name="password" type="password" class="form-control"><br />
+			<label for="id_password2">Retype Password:</label>
+			<input id="id_password2" name="password2" type="password" class="form-control"><br />
+			<input id="id_next" name="next" type="hidden" value="/">
+			<input type="submit" id="id_submit" value="Register">
+		</form>
+	<div id="message">
+	{% autoescape off %}{{ error_message }}{% endautoescape %}
+	</div>
+	</div>
+</body>

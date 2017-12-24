@@ -1,0 +1,12 @@
+<head>
+	<title>Postal Tracking Login</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+<body>
+	<div id="main">
+	<div id="message">
+	{% autoescape off %}{{ message }}{% endautoescape %}
+	</div>
+	</div>
+</body>

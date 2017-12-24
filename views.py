@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from .models import tracking_numbers
@@ -43,11 +44,42 @@ def loginF(request):
 def loginP(request):
 	username = request.POST.get('username')
 	password = request.POST.get('password')
-	user = authenticate(username=username, password=password)
-	if user:
-		login(request, user)
-		return redirect('/')
+	if username:
+		user = authenticate(username=username, password=password)
+		if user:
+			login(request, user)
+			return redirect('/')
+		else:
+			error_message = "Login Failed (<a href=\"/register\">Register</a>)"
+			context = { 'error_message': error_message }
+			return render(request,'login.html', context)
 	else:
-		error_message = "Invalid credentials."
-		context = { error_message: 'blablablahhh' }
-		return redirect('/', error_message)
+		return render(request, 'login.html')
+
+def registerF(request):
+	username = request.POST.get('username')
+	password = request.POST.get('password')
+	password2 = request.POST.get('password2')
+	email = request.POST.get('email')
+	if username:
+		try:
+			exists = User.objects.get(username=username)
+		except ObjectDoesNotExist as e:
+			exists = ''
+		if exists:
+			return HttpResponse('nope.. user exists')
+		else:	
+			if password == password2:
+				user = User.objects.create_user(username=username, email=email, password=password)
+				user.save()
+				message = 'User %s has been created.<br />Click <a href="/login">here</a> to return to login page.' % username
+				context = { 'message': message }
+				return render(request, 'register2.html', context)
+#				return HttpResponse('User '+username+' created.')
+			else:
+				return HttpResponse('Passwords do not match. Please amend and try again.')
+	else:
+		return render(request, 'register.html') 
+
+def registerP(request):
+	return HttpResponse('registerP')
