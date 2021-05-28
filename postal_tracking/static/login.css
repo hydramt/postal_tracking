@@ -1,0 +1,24 @@
+body {
+	text-align: center;
+	vertical-align: middle;
+	height; 100%;
+	width: 100%;
+	color: lawngreen;
+	background-color: black;
+	overflow: hidden;
+}
+#main {
+	top: 50%;
+	bottom: 50%;
+	height; 100%;
+	width: 100%;
+	vertical-align: middle;
+	position: absolute;
+}
+#loginForm {
+	display: inline-block;
+	text-align: right;
+}
+#message {
+	color: red;
+}

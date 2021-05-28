@@ -5,3 +5,8 @@ db.*
 __pycache__
 migrations
 settings.py
+bin
+include
+lib
+lib64
+pip-selfcheck.json
